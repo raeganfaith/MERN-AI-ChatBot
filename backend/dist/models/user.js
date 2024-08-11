@@ -31,4 +31,4 @@ const userSchema = new mongoose.Schema({
     chats: [chatSchema],
 });
 export default mongoose.model("User", userSchema);
-//# sourceMappingURL=user.js.map
+//# sourceMappingURL=User.js.map
