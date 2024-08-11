@@ -7,7 +7,7 @@ config();
 const app = express();
 // middlewares
 app.use(express.json());
-app.use(cookieParser(process.env.COOKIE_SERCRET));
+app.use(cookieParser(process.env.COOKIE_SECRET));
 // remove this in production
 app.use(morgan("dev"));
 app.use("/api/v1", appRouter);
