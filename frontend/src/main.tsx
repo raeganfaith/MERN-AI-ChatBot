@@ -1,9 +1,10 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 import { BrowserRouter } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material"
+import { AuthProvider } from './context/AuthContext.tsx';
 
 const theme = createTheme({
   typography: {
@@ -11,12 +12,14 @@ const theme = createTheme({
     allVariants: { color: "white" },
   },
 });
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <AuthProvider>
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <App />
       </ThemeProvider>
     </BrowserRouter>
-  </StrictMode>,
-)
+    </AuthProvider>
+  </React.StrictMode>,
+);
