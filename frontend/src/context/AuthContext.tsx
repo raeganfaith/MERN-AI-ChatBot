@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     // fetch if the user's cookies are valid then skip login
   }, []);
   const login = async (email: string, password: string) => {}; 
-  const signup = async (name: string, email: string, password: string) => { };
+  const signup = async (name: string, email: string, password: string) => {};
   const logout = async () => { };
 
   const value = {
@@ -36,5 +36,5 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
-export const useAuth = useContext(AuthContext);
+export const useAuth = () => useContext(AuthContext);
 
