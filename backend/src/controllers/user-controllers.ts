@@ -6,13 +6,13 @@ import { hash, compare } from "bcrypt";
 import { createToken } from '../utils/token-manager.js';
 import { COOKIE_NAME } from '../utils/constants.js';
 
+// GET ALL USERS
 export const getAllUsers = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    // get all users
     const users = await User.find();
     return res.status(200).json({message: "OK", users});
   } catch (error) {
@@ -21,13 +21,13 @@ export const getAllUsers = async (
   }
 };
 
+// USER SIGN UP
 export const userSignup = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    //user signup
     const { name, email, password } = req.body;
 
     const existingUser = await User.findOne({ email });
@@ -56,20 +56,20 @@ export const userSignup = async (
       signed: true,
     });
 
-    return res.status(201).json({message: "OK", id: user._id.toString()});
+    return res.status(201).json({message: "OK", name: user.name, email: user.email });
   } catch (error) {
     console.log(error);
     return res.status(200).json({message: "ERROR", cause: error.message});
   }
 };
 
+// USER LOGIN
 export const userLogin = async (
   req: Request,
   res: Response,
   next: NextFunction,
 ) => {
   try {
-    //user login
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (!user) {
@@ -99,7 +99,7 @@ export const userLogin = async (
       signed: true,
     });
 
-    return res.status(200).json({message: "OK", id: user._id.toString()});
+    return res.status(200).json({message: "OK", name: user.name, email: user.email });
   } catch (error) {
     console.log(error);
     return res.status(200).json({message: "ERROR", cause: error.message});
