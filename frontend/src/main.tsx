@@ -5,6 +5,9 @@ import './index.css';
 import { BrowserRouter } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material"
 import { AuthProvider } from './context/AuthContext.tsx';
+import axios from "axios";
+axios.defaults.baseURL = "http://localhost:5000/api/v1";
+axios.defaults.withCredentials = true;
 
 const theme = createTheme({
   typography: {
