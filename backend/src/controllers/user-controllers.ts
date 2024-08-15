@@ -106,7 +106,7 @@ export const userLogin = async (
   }
 };
 
-// VERIFY USER
+// VERIFY/CHECK USER TOKEN 
 export const verifyUser = async (
   req: Request,
   res: Response,
