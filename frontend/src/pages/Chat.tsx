@@ -3,6 +3,37 @@ import { Box, Avatar, Typography, Button } from "@mui/material";
 import { useAuth } from "../context/AuthContext";
 import red from "@mui/material/colors/red";
 
+const chatMessages = [
+  {
+    role: "assistant",
+    content: "Hello! How can I assist you today?"
+  },
+  {
+    role: "assistant",
+    content: "I’m your friendly AI assistant, here to help with your questions."
+  },
+  {
+    role: "assistant",
+    content: "Need help? Just ask me anything!"
+  },
+  {
+    role: "assistant",
+    content: "Goodbye! Have a great day!"
+  },
+  {
+    role: "assistant",
+    content: "Got it! Anything else I can help with?"
+  },
+  {
+    role: "assistant",
+    content: "Oops! Something went wrong. Can you try that again?"
+  },
+  {
+    role: "assistant",
+    content: "You’re welcome! Let me know if there’s anything else."
+  }
+];
+
 const Chat = () => {
   const auth = useAuth();
   return (
@@ -77,6 +108,7 @@ const Chat = () => {
             color: "white", 
             mb: 2,
             mx: "auto", 
+            fontWeight: "600"
           }}
         >
           Model - GPT 3.5 Turbo
@@ -91,11 +123,11 @@ const Chat = () => {
             flexDirection: "column",
             overflow: "scroll",
             overflowX: "hidden",
+            overflowY: "auto",
             scrollBehavior: "smooth",
-            
           }}
         >
-
+          { chatMessages.map((chat) => <div>{ chat.content }</div>) }  
         </Box>
       </Box>
     </Box>
