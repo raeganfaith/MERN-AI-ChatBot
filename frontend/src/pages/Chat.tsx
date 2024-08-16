@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Avatar, Typography, Button } from "@mui/material";
 import { useAuth } from "../context/AuthContext";
+import red from "@mui/material/colors/red";
 
 const Chat = () => {
   const auth = useAuth();
@@ -52,7 +53,49 @@ const Chat = () => {
             You can ask some questions related to Knowledge, Business, Advices,
             Education, etc. But avoid sharing personal information
           </Typography>
-          <Button></Button>
+          <Button 
+            sx={{ 
+              width: "200px", 
+              my: "auto", 
+              color: "white",
+              fontWeight: "700",
+              borderRadius: 3,
+              mx: "auto",
+              bgcolor: red[300],
+              ":hover": {
+                bgcolor: red.A400,
+              }, 
+            }}>
+              Clear Conversation
+          </Button>
+        </Box>
+      </Box>
+      <Box sx={{ display: "flex", flex:{ md: 0.8, xs: 1, s: 1 }, flexDirection: "column", px: 3 }}>
+        <Typography 
+          sx={{ 
+            fontSize: "40px", 
+            color: "white", 
+            mb: 2,
+            mx: "auto", 
+          }}
+        >
+          Model - GPT 3.5 Turbo
+        </Typography>
+        <Box 
+          sx={{ 
+            width: "100%",
+            height: "60vh",
+            borderRadius: 3,
+            mx: "auto",
+            display: "flex",
+            flexDirection: "column",
+            overflow: "scroll",
+            overflowX: "hidden",
+            scrollBehavior: "smooth",
+            
+          }}
+        >
+
         </Box>
       </Box>
     </Box>
