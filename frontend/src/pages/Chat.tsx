@@ -2,35 +2,48 @@ import React from "react";
 import { Box, Avatar, Typography, Button } from "@mui/material";
 import { useAuth } from "../context/AuthContext";
 import red from "@mui/material/colors/red";
+import ChatItem from "../components/chat/ChatItem";
 
 const chatMessages = [
+  {
+    role: "user",
+    content: "Hi there!"
+  },
   {
     role: "assistant",
     content: "Hello! How can I assist you today?"
   },
   {
-    role: "assistant",
-    content: "I’m your friendly AI assistant, here to help with your questions."
+    role: "user",
+    content: "What can you do?"
   },
   {
     role: "assistant",
-    content: "Need help? Just ask me anything!"
+    content: "I can help answer questions, provide recommendations, and assist with various tasks. What would you like to know?"
+  },
+  {
+    role: "user",
+    content: "Tell me a joke."
   },
   {
     role: "assistant",
-    content: "Goodbye! Have a great day!"
+    content: "Why don’t skeletons fight each other? They don’t have the guts!"
+  },
+  {
+    role: "user",
+    content: "Haha, that's funny!"
   },
   {
     role: "assistant",
-    content: "Got it! Anything else I can help with?"
+    content: "Glad you liked it! Anything else I can help with?"
+  },
+  {
+    role: "user",
+    content: "No, that's all. Thanks!"
   },
   {
     role: "assistant",
-    content: "Oops! Something went wrong. Can you try that again?"
-  },
-  {
-    role: "assistant",
-    content: "You’re welcome! Let me know if there’s anything else."
+    content: "You’re welcome! Have a great day!"
   }
 ];
 
@@ -127,7 +140,9 @@ const Chat = () => {
             scrollBehavior: "smooth",
           }}
         >
-          { chatMessages.map((chat) => <div>{ chat.content }</div>) }  
+          { chatMessages.map((chat, index) => (
+            <ChatItem content={chat.content} role={chat.role} key={index}></ChatItem>
+          )) }  
         </Box>
       </Box>
     </Box>
