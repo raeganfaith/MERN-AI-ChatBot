@@ -8,7 +8,7 @@ const chatSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    required: true, 
+    required: true,
   },
   content: {
     type: String,
@@ -17,7 +17,7 @@ const chatSchema = new mongoose.Schema({
 });
 const userSchema = new mongoose.Schema({
   name: {
-    type:  String,
+    type: String,
     required: true,
   },
   email: {
