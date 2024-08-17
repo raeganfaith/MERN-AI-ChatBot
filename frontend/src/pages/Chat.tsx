@@ -1,8 +1,9 @@
 import React from "react";
-import { Box, Avatar, Typography, Button } from "@mui/material";
+import { Box, Avatar, Typography, Button, IconButton } from "@mui/material";
 import { useAuth } from "../context/AuthContext";
 import red from "@mui/material/colors/red";
 import ChatItem from "../components/chat/ChatItem";
+import { IoMdSend } from "react-icons/io";
 
 const chatMessages = [
   {
@@ -157,6 +158,33 @@ const Chat = () => {
             ></ChatItem>
           ))}
         </Box>
+        <div
+          style={{
+            width: "100%",
+            padding: "20px",
+            borderRadius: 8,
+            backgroundColor: "rgb(17, 27, 39)",
+            display: "flex",
+            margin: "auto",
+          }}
+        >
+          {" "}
+          <input
+            type="text"
+            style={{
+              width: "100%",
+              backgroundColor: "transparent",
+              padding: "30px",
+              border: "none",
+              outline: "none",
+              color: "white",
+              fontSize: "20px",
+            }}
+          />
+          <IconButton sx={{ ml: "auto", color: "white" }}>
+            <IoMdSend />
+          </IconButton>
+        </div>
       </Box>
     </Box>
   );
