@@ -1,56 +1,27 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Box, Avatar, Typography, Button, IconButton } from "@mui/material";
 import { useAuth } from "../context/AuthContext";
 import red from "@mui/material/colors/red";
 import ChatItem from "../components/chat/ChatItem";
 import { IoMdSend } from "react-icons/io";
 
-const chatMessages = [
-  {
-    role: "user",
-    content: "Hi there!",
-  },
-  {
-    role: "assistant",
-    content: "Hello! How can I assist you today?",
-  },
-  {
-    role: "user",
-    content: "What can you do?",
-  },
-  {
-    role: "assistant",
-    content:
-      "I can help answer questions, provide recommendations, and assist with various tasks. What would you like to know?",
-  },
-  {
-    role: "user",
-    content: "Tell me a joke.",
-  },
-  {
-    role: "assistant",
-    content: "Why don’t skeletons fight each other? They don’t have the guts!",
-  },
-  {
-    role: "user",
-    content: "Haha, that's funny!",
-  },
-  {
-    role: "assistant",
-    content: "Glad you liked it! Anything else I can help with?",
-  },
-  {
-    role: "user",
-    content: "No, that's all. Thanks!",
-  },
-  {
-    role: "assistant",
-    content: "You’re welcome! Have a great day!",
-  },
-];
+type Message = {
+  role: "user" | "assistant";
+  content: string;
+};
 
 const Chat = () => {
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const auth = useAuth();
+  const [chatMessages, setChatMessages] = useState<Message[]>([]);
+  const handleSubmit = async () => {
+    const content = inputRef.current?.value as string;
+    if (inputRef && inputRef.current) {
+      inputRef.current.value = "";
+    }
+    const newMessage: Message = { role: "user", content };
+    setChatMessages((prev) => [...prev, newMessage]);
+  };
   return (
     <Box
       sx={{
@@ -152,7 +123,11 @@ const Chat = () => {
         >
           {chatMessages.map((chat, index) => (
             <ChatItem
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              //@ts-expect-error
               content={chat.content}
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              //@ts-ignore
               role={chat.role}
               key={index}
             ></ChatItem>
@@ -170,6 +145,7 @@ const Chat = () => {
         >
           {" "}
           <input
+            ref={inputRef}
             type="text"
             style={{
               width: "100%",
@@ -181,7 +157,10 @@ const Chat = () => {
               fontSize: "20px",
             }}
           />
-          <IconButton sx={{ ml: "auto", color: "white" }}>
+          <IconButton
+            onClick={handleSubmit}
+            sx={{ ml: "auto", color: "white" }}
+          >
             <IoMdSend />
           </IconButton>
         </div>
