@@ -15,7 +15,7 @@ const TypingAnim = () => {
       speed={50}
       style={{
         fontSize: "60px",
-        color: "white",
+        color: "#DBD8E3",
         display: "inline-block",
         textShadow: "1px 1px 20px #000",
       }}
