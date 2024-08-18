@@ -4,6 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import red from "@mui/material/colors/red";
 import ChatItem from "../components/chat/ChatItem";
 import { IoMdSend } from "react-icons/io";
+import { sendChatRequest } from "../helpers/api-communicator";
 
 type Message = {
   role: "user" | "assistant";
@@ -21,6 +22,8 @@ const Chat = () => {
     }
     const newMessage: Message = { role: "user", content };
     setChatMessages((prev) => [...prev, newMessage]);
+    const chatData = await sendChatRequest(content);
+    setChatMessages([...chatData.chats]);
   };
   return (
     <Box
@@ -123,8 +126,6 @@ const Chat = () => {
         >
           {chatMessages.map((chat, index) => (
             <ChatItem
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              //@ts-expect-error
               content={chat.content}
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               //@ts-ignore
