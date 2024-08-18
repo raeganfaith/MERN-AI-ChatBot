@@ -16,7 +16,7 @@ const Footer = () => {
           Built With love by
           <span>
             <Link
-              style={{ color: "white" }}
+              style={{ color: "#DBD8E3" }}
               className="nav-link"
               to={"https://github.com/raeganfaith"}
             >
