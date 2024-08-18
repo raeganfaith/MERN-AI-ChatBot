@@ -76,9 +76,9 @@ const Login = () => {
                 mt: 2,
                 width: "400px",
                 borderRadius: 2,
-                bgcolor: "#00fffc",
+                bgcolor: "#B0BEC5",
                 ":hover": {
-                  bgcolor: "white",
+                  bgcolor: "#DBD8E3",
                   color: "black",
                 },
               }}

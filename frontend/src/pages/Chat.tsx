@@ -94,7 +94,7 @@ const Chat = () => {
             sx={{
               mx: "auto",
               my: 2,
-              bgcolor: "white",
+              bgcolor: "#DBD8E3",
               color: "black",
               fontWeight: 700,
             }}
@@ -114,7 +114,7 @@ const Chat = () => {
             sx={{
               width: "200px",
               my: "auto",
-              color: "white",
+              color: "#DBD8E3",
               fontWeight: "700",
               borderRadius: 3,
               mx: "auto",
@@ -139,7 +139,7 @@ const Chat = () => {
         <Typography
           sx={{
             fontSize: "40px",
-            color: "white",
+            color: "#DBD8E3",
             mb: 2,
             mx: "auto",
             fontWeight: "600",
@@ -184,11 +184,11 @@ const Chat = () => {
               padding: "30px",
               border: "none",
               outline: "none",
-              color: "white",
+              color: "#DBD8E3",
               fontSize: "20px",
             }}
           />
-          <IconButton onClick={handleSubmit} sx={{ color: "white", mx: 1 }}>
+          <IconButton onClick={handleSubmit} sx={{ color: "#DBD8E3", mx: 1 }}>
             <IoMdSend />
           </IconButton>
         </div>
