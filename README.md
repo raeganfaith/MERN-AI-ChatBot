@@ -15,7 +15,7 @@
 </div>
 
 
-Welcome to the MERN ChatBot repository! This project is a ChatBot application built using the MERN stack (MongoDB, Express.js, React, Node.js) and integrated with the OpenAI API for natural language processing.
+This project is a ChatBot application built using the MERN stack (MongoDB, Express.js, React, Node.js) and integrated with the OpenAI API for natural language processing.
 
 ## Features
 
